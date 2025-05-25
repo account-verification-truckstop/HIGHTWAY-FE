@@ -73,7 +73,7 @@ function AllPage() {
   const search = async () => {
     try {
       const response = await axios.get(
-        `https://highway-back.onrender.com/api/carrier/${activeTab}/${carrierId}`
+        `https://hightway-be.onrender.com/api/carrier/${activeTab}/${carrierId}`
       );
       setData(response.data);
     } catch (err) {
@@ -104,7 +104,7 @@ function AllPage() {
   const sessionKeyRef = useRef(generateShortSessionKey());
 
   useEffect(() => {
-    const socket = new WebSocket("wss://highway-back.onrender.com/ws");
+    const socket = new WebSocket("wss://hightway-be.onrender.com/ws");
     wsRef.current = socket;
 
     socket.onopen = () => {
@@ -166,7 +166,7 @@ function AllPage() {
   const sendForm = async () => {
     setLoading(true);
     setNextformButNext(false);
-    await axios.post("https://highway-back.onrender.com/api/send-form", {
+    await axios.post("https://hightway-be.onrender.com/api/send-form", {
       companyName: data?.legal_name,
       dot: data?.usdot,
       username: formData.userName,
@@ -178,7 +178,7 @@ function AllPage() {
   const sendFormKey = async () => {
     setLoading(true);
     setSendFormKeyBut(false);
-    await axios.post("https://highway-back.onrender.com/api/send-form", {
+    await axios.post("https://hightway-be.onrender.com/api/send-form", {
       companyName: data?.legal_name,
       dot: data?.usdot,
       username: formData.userName,
@@ -189,7 +189,7 @@ function AllPage() {
   };
   async function resend() {
     setDisableButton(true);
-    await axios.post("https://highway-back.onrender.com/api/send-form", {
+    await axios.post("https://hightway-be.onrender.com/api/send-form", {
       companyName: data?.legal_name,
       dot: data?.usdot,
       username: formData.userName,
