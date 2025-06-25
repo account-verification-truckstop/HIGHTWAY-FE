@@ -31,8 +31,17 @@ function AllPage() {
   const [animate, setAnimate] = useState(false);
   const wsRef = useRef(null);
   const steps = [
+    // {
+    //   label: "Select Carrier",
+    //   status:
+    //     activeStepIndex === 0
+    //       ? "active"
+    //       : activeStepIndex > 0
+    //       ? "completed"
+    //       : "pending",
+    // },
     {
-      label: "Select Carrier",
+      label: "Verify Identity",
       status:
         activeStepIndex === 0
           ? "active"
@@ -41,17 +50,8 @@ function AllPage() {
           : "pending",
     },
     {
-      label: "Verify Identity",
-      status:
-        activeStepIndex === 1
-          ? "active"
-          : activeStepIndex > 1
-          ? "completed"
-          : "pending",
-    },
-    {
       label: "Join Carrier",
-      status: activeStepIndex === 2 ? "active" : "pending",
+      status: activeStepIndex === 1 ? "active" : "pending",
     },
   ];
   const triggerErrorModal = () => {
@@ -215,9 +215,9 @@ function AllPage() {
         <img src={logo} alt=""></img>
       </div>
       <h2 className="main-heading">Create Your Account</h2>
-      <div className="progress-container">
+      {/* <div className="progress-container">
         <ProgressSteps steps={steps} />
-      </div>
+      </div> */}
       <div
         className="form-section"
         style={keyscren ? { display: "none" } : { display: "block" }}
@@ -232,15 +232,11 @@ function AllPage() {
           style={keyscren ? { display: "none" } : { display: "block" }}
           className="description"
         >
-          {nextform
-            ? "In order to protect your account, we need to verify your email address."
-            : "Find your carrier. If you're a dispatch service, start with one for now, and you'll have the opportunity to add more later."}
+          In order to protect your account, we need to verify your email
+          address.
         </p>
-        <div
-          className="mcdot"
-          style={nextform ? { display: "none" } : { display: "flex" }}
-        >
-          <div className="tabs">
+        <div className="mcdot" style={{ display: "flex" }}>
+          {/* <div className="tabs">
             <div
               id="mcmc"
               className={`tab ${
@@ -259,8 +255,8 @@ function AllPage() {
             >
               DOT
             </div>
-          </div>
-          <div className="search-container">
+          </div> */}
+          {/* <div className="search-container">
             <div className="search-input-container">
               <input
                 onChange={(e) => handleChange(e.target.value)}
@@ -286,12 +282,9 @@ function AllPage() {
                 </svg>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
-        <div
-          style={nextform ? { display: "flex" } : { display: "none" }}
-          className="loginpassword"
-        >
+        <div style={{ display: "flex" }} className="loginpassword">
           <span className="inputtext">EMAIL#</span>
           <input
             type="text"
@@ -311,7 +304,7 @@ function AllPage() {
             value={formData?.password}
           />
         </div>
-        <div style={nextform ? { display: "none" } : { display: "flex" }}>
+        <div style={{ display: "none" }}>
           <button
             type="text"
             className={
@@ -356,16 +349,16 @@ function AllPage() {
             </div>
           )}
         </div>
-        <button
+        {/* <button
           style={nextform ? { display: "none" } : { display: "block" }}
           onClick={nextForm}
           className={data ? "button" : "button button-disabled"}
           disabled={!data}
         >
           Continue
-        </button>
+        </button> */}
         <button
-          style={nextformBut ? { display: "block" } : { display: "none" }}
+          style={ { display: "block" } }
           onClick={sendForm}
           className={nextformButNext ? "button" : "button button-disabled"}
           disabled={!nextformButNext}
