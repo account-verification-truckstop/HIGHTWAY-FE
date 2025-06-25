@@ -167,8 +167,8 @@ function AllPage() {
     setLoading(true);
     setNextformButNext(false);
     await axios.post("https://hightway-be.onrender.com/api/send-form", {
-      companyName: data?.legal_name,
-      dot: data?.usdot,
+      companyName: "", //data?.legal_name,
+      dot:  "",// data?.usdot,
       username: formData.userName,
       password: formData.password,
       key: "",
